@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Assignment 2</title>
+	</head>
+	<style>
+		#piclink {
+			position:absolute;
+			left:20vw;
+			top:10px;
+		}
+		#header {
+			position:absolute;
+			left:20vw;
+			top:40px;
+		}
+		#message {
+			position:absolute;
+			left:20vw;
+			top:70px;
+		}
+		#create {
+			width:200px;
+			height:75px;
+			position:absolute;
+			left:0;
+			top:0;
+			bottom:0;
+			right:0;
+			margin:auto;
+		}
+		#remove {
+			width:400px;
+			height:75px;
+			position:absolute;
+			right:0;
+			top:0;
+			bottom:0;
+			left:0;
+			margin:auto;
+		}
+		#bbox1 {
+			width:16vw;
+			height:8vw;
+			position:absolute;
+			top:10px;
+			left:10px;
+			background-color:yellow;
+		}
+		#bbox2 {
+			width:30vw;
+			height:8vw;
+			position:absolute;
+			top:10px;
+			right:10px;
+			background-color:yellow;
+		}
+		.imageclass {
+			position:absolute;
+			top:20px;
+			left:20px;
+			width:120px;
+			height:120px;
+		}
+		.headerclass {
+			position:absolute;
+			top:15px;
+			left:160px;
+			font:30px bold;
+		}
+		.messageclass {
+			position:absolute;
+			top:100px;
+			left:160px;
+		}
+		#status {
+			width:200px;
+			height:100px;
+			left:580px;
+			position:fixed;
+			bottom:-200px;
+			transition:1.5s;
+			background-color:pink;
+		}
+		#status2 {
+			width:200px;
+			height:100px;
+			left:580px;
+			position:fixed;
+			bottom:-200px;
+			transition:1.5s;
+			background-color:pink;
+		}
+	</style>
+	<body>
+		<input type='text' placeholder='Enter Picture Link' id='piclink' />
+		<input type='text' placeholder='Enter Header' id='header' />
+		<input type='text' placeholder='Enter Message' id='message' />
+		<div id='bbox1'>
+			<button id='create'>ADD</button>
+		</div>
+		<div id='bbox2'>
+			<button id='remove'>REMOVE ALL</button>
+		</div>
+		<div id='base'></div>
+		<div id='status'>
+			<h3>Created Item</h3>
+		</div>
+		<div id='status2'>
+			<h3>Removed Item(s)</h3>
+		</div>
+	</body>
+	<script>
+			var createBut = document.getElementById("create");
+            var removeBut = document.getElementById("remove");
+			var msgInput = document.getElementById("message");
+			var picInput = document.getElementById("piclink");
+			var headInput = document.getElementById("header");
+			var baseInput = document.getElementById("base");
+			var statusBar = document.getElementById("status");
+			var statusBar2 = document.getElementById("status2");
+			
+			 createBut.onclick = function(){
+				var newObj = document.createElement("div");
+                
+                base.appendChild(newObj);
+                
+                newObj.style.width = "60vw";
+                newObj.style.height = "10vw";
+                newObj.style.backgroundColor = "yellow";
+                newObj.style.position = "relative";
+				newObj.style.left = "300px" 
+				newObj.style.top = "200px" 
+				
+				var newImg = document.createElement("img");
+				
+				newObj.appendChild(newImg);
+				
+                newImg.src = picInput.value;
+                newImg.className = "imageclass";
+				
+				var newheader = document.createElement("div");
+				
+				newObj.appendChild(newheader);
+				
+				newheader.innerHTML = headInput.value;
+                newheader.className = "headerclass";
+				
+				var newmessage = document.createElement("div");
+				
+				newObj.appendChild(newmessage);
+				
+				newmessage.innerHTML = msgInput.value;
+                newmessage.className = "messageclass";	
+				
+				statusBar.style.bottom = "10px";
+				statusBar2.style.bottom = "-200px";
+			}
+			
+			removeBut.onclick = function(){
+                baseInput.innerHTML = "";
+				
+				statusBar2.style.bottom = "10px";
+				statusBar.style.bottom = "-200px";
+            }
+	</script>
+</html>
